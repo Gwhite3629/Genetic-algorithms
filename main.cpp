@@ -1,6 +1,6 @@
-#include "world.h"
-#include "creature.h"
-#include "trait.h"
+#include "world.hpp"
+#include "creature.hpp"
+#include "trait.hpp"
 
 int main(void)
 {

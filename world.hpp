@@ -1,7 +1,8 @@
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef _WORLD_HPP_
+#define _WORLD_HPP_
 
-#include "creature.h"
+#include "creature.hpp"
+#include "hashmap.h"
 
 struct stat
 {
@@ -15,7 +16,8 @@ public:
     int n_creatures;
     stat creature_stat;
 
-    World();
+    World(unsigned int,unsigned int);
+    ~World();
 
     int populate(Creature *);
 
@@ -26,9 +28,11 @@ public:
     int get_stat();
 
 private:
+    unsigned int x_size;
+    unsigned int y_size;
     unsigned int *world;
     hashmap_t *creatures;
 
-}
+};
 
-#endif // WORLD_H
+#endif // _WORLD_H_

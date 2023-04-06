@@ -1,22 +1,27 @@
-#ifndef CREATURE_H
-#define CREATURE_H
+#ifndef _CREATURE_HPP_
+#define _CREATURE_HPP_
 
-#include "trait.h"
+#include "trait.hpp"
 
 class Creature
 {
 public:
     unsigned int tag;
+    char *tag_str;
 
-    Creature();
+    Creature(int,char*,bool);
+    ~Creature();
+
     unsigned int generate_tag();
+    int add_trait(Trait*);
 
 private:
     int max_energy; // Creatures generational energy
     int energy;     // Creatures current energy
     Trait *trait;   // Array of traits
+    int n_traits = 0;
     char *name;     // Name of creature type
     bool evolve;    // Indicates if the creatures traits matter
-}
+};
 
-#endif // CREATURE_H
+#endif // _CREATURE_H_
