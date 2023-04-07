@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.fs": "fsharp",
-        "cstdio": "cpp",
-        "cerrno": "cpp"
-    }
-}

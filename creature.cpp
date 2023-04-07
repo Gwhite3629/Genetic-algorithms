@@ -36,7 +36,7 @@ unsigned int Creature::generate_tag()
 
     MEM(this->tag_str, 1, char);
 
-    while ((this->tag_str + i) != NULL) {
+    while ((this->trait + i) != NULL) {
         MEM_(this->tag_str, strlen(this->trait[i].name), char);
         strcat(this->tag_str, this->trait[i].name);
         i++;
@@ -48,12 +48,12 @@ exit:
     return (unsigned int) ret;
 }
 
-int Creature::add_trait(Trait *new_trait)
+int Creature::add_trait(Trait new_trait)
 {
     int ret = SUCCESS;
 
     MEM_(this->trait, this->n_traits+1, Trait);
-    this->trait[this->n_traits] = *new_trait;
+    this->trait[this->n_traits] = new_trait;
     this->n_traits++;
 
 exit:

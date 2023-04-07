@@ -15,11 +15,14 @@ class World
 public:
     int n_creatures;
     stat creature_stat;
+    unsigned int x_size;
+    unsigned int y_size;
+    unsigned int age;
 
     World(unsigned int,unsigned int);
     ~World();
 
-    int populate(Creature *);
+    int populate(Creature);
 
     int run();
 
@@ -28,8 +31,6 @@ public:
     int get_stat();
 
 private:
-    unsigned int x_size;
-    unsigned int y_size;
     unsigned int *world;
     hashmap_t *creatures;
 

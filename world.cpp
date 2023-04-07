@@ -20,11 +20,17 @@ exit:
     assert(ret == 0);
 }
 
-int World::populate(Creature *new_creature)
+World::~World()
+{
+    SFREE(world);
+    SFREE(creatures);
+}
+
+int World::populate(Creature new_creature)
 {
     int ret = SUCCESS;
 
-    map_insert(&this->creatures, &n_creatures, new_creature->tag_str, new_creature);
+    map_insert(&this->creatures, &n_creatures, new_creature.tag_str, &new_creature);
 
 exit:
     return ret;

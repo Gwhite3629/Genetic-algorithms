@@ -31,6 +31,12 @@
     */
 
     /**
+     * @brief File read return code
+     * Indicates that there was an issue reading a file
+     */
+#define FILE_READ -5
+
+    /**
      * @brief File open return code
      * Indicates that there was an issue openning a file
      */

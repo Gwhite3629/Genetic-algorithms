@@ -6,7 +6,7 @@ class Trait
 public:
     char *name;     // Name of trait
 
-    Trait();
+    Trait(char *);
     ~Trait();
 
 private:
