@@ -34,37 +34,37 @@
      * @brief File read return code
      * Indicates that there was an issue reading a file
      */
-#define FILE_READ -5
+#define FILE_READ 6
 
     /**
      * @brief File open return code
      * Indicates that there was an issue openning a file
      */
-#define FILE_OPEN -5
+#define FILE_OPEN 5
 
      /**
       * @brief Miscellaneous return code
       * Indicates that there was an error somewhere in a function return
       */
-#define BAD_ARGUMENT -4
+#define BAD_ARGUMENT 4
 
       /**
        * @brief No parameters return code
        * Indicates that no or insufficient parameters were given for a function.
        */
-#define NO_PARAM -3
+#define NO_PARAM 3
 
        /**
         * @brief Thread error return code
         * Indicates that a thread returned an error
         */
-#define THREAD_ERROR -2
+#define THREAD_ERROR 2
 
         /**
          * @brief Memory allocation return code
          * Indicates that memory allocation was not successful
          */
-#define ALLOCATION_ERROR -1
+#define ALLOCATION_ERROR 1
 
          /**
           * @brief Success return code
@@ -134,7 +134,7 @@ typedef int err_t;
     (ptr) = memtmp;
 
 #define SFREE(ptr) \
-    if (ptr) \
+    if (ptr != NULL) \
         free(ptr); \
     ptr = NULL;
 

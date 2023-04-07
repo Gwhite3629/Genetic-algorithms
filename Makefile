@@ -1,20 +1,20 @@
-CC=g++
-LINK=g++
+CC=gcc
+LINK=gcc
 TARGET=gen.exe
 OBJS=main.o creature.o file.o trait.o world.o
-CFLAGS= -g -Wall -Wextra -O0
-LFLAGS= -g -O0
+CFLAGS= -g -Wall -Wextra
+LFLAGS= -g
 
 all: ${TARGET}
 
 ${TARGET}: ${OBJS}
 	${CC} ${LFLAGS} -o $@ $^
 
-main.o: main.cpp
-creature.o: creature.cpp
-file.o: file.cpp
-trait.o: trait.cpp
-world.o: world.cpp
+main.o: main.c
+creature.o: creature.c
+file.o: file.c
+trait.o: trait.c
+world.o: world.c
 
 .PHONY : clean
 
