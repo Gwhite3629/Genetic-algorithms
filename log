@@ -1,0 +1,311 @@
+==588== Memcheck, a memory error detector
+==588== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==588== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==588== Command: ./gen
+==588== Parent PID: 378
+==588== 
+==588== Invalid write of size 1
+==588==    at 0x486B748: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x1092EB: generate_tag (creature.c:43)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a43805 is 0 bytes after a block of size 5 alloc'd
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x10922B: generate_tag (creature.c:41)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Conditional jump or move depends on uninitialised value(s)
+==588==    at 0x486B284: strcat (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109443: generate_tag (creature.c:51)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Uninitialised value was created by a heap allocation
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid write of size 1
+==588==    at 0x486B2B0: strcat (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109443: generate_tag (creature.c:51)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a4489b is 0 bytes after a block of size 11 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x108F00: hash (hashmap.h:22)
+==588==    by 0x10946F: generate_tag (creature.c:54)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x1096D4: hash (hashmap.h:22)
+==588==    by 0x10979B: lookup (hashmap.h:45)
+==588==    by 0x1098A7: map_insert (hashmap.h:68)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x1099D3: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109AEF: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x486B734: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109B37: map_insert (hashmap.h:78)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid write of size 1
+==588==    at 0x486B748: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109B37: map_insert (hashmap.h:78)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a449b1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109A0B: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x1096D4: hash (hashmap.h:22)
+==588==    by 0x109B9F: map_insert (hashmap.h:80)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x48FDAB3: puts (ioputs.c:35)
+==588==    by 0x108E7B: main (main.c:18)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== HEAP SUMMARY:
+==588==     in use at exit: 644 bytes in 6 blocks
+==588==   total heap usage: 24 allocs, 18 frees, 9,035 bytes allocated
+==588== 
+==588== 16 bytes in 2 blocks are definitely lost in loss record 1 of 5
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109583: add_trait (creature.c:66)
+==588==    by 0x10A3D7: read_cfg (file.c:49)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 50 bytes in 1 blocks are definitely lost in loss record 2 of 5
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109CEF: read_cfg (file.c:29)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 50 bytes in 1 blocks are definitely lost in loss record 3 of 5
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109D87: read_cfg (file.c:30)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 56 bytes in 1 blocks are definitely lost in loss record 4 of 5
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x10A2BF: read_cfg (file.c:46)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 472 bytes in 1 blocks are still reachable in loss record 5 of 5
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x48FBECF: __fopen_internal (iofopen.c:65)
+==588==    by 0x109E2B: read_cfg (file.c:32)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== LEAK SUMMARY:
+==588==    definitely lost: 172 bytes in 5 blocks
+==588==    indirectly lost: 0 bytes in 0 blocks
+==588==      possibly lost: 0 bytes in 0 blocks
+==588==    still reachable: 472 bytes in 1 blocks
+==588==         suppressed: 0 bytes in 0 blocks
+==588== 
+==588== ERROR SUMMARY: 17 errors from 15 contexts (suppressed: 0 from 0)
+==588== 
+==588== 1 errors in context 1 of 15:
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x48FDAB3: puts (ioputs.c:35)
+==588==    by 0x108E7B: main (main.c:18)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 2 of 15:
+==588== Invalid read of size 1
+==588==    at 0x1096D4: hash (hashmap.h:22)
+==588==    by 0x109B9F: map_insert (hashmap.h:80)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 3 of 15:
+==588== Invalid write of size 1
+==588==    at 0x486B748: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109B37: map_insert (hashmap.h:78)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a449b1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109A0B: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 4 of 15:
+==588== Invalid read of size 1
+==588==    at 0x486B734: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109B37: map_insert (hashmap.h:78)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 5 of 15:
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109AEF: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 6 of 15:
+==588== Invalid read of size 1
+==588==    at 0x486B5EC: strlen (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x1099D3: map_insert (hashmap.h:77)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 7 of 15:
+==588== Invalid read of size 1
+==588==    at 0x1096D4: hash (hashmap.h:22)
+==588==    by 0x10979B: lookup (hashmap.h:45)
+==588==    by 0x1098A7: map_insert (hashmap.h:68)
+==588==    by 0x10A46B: read_cfg (file.c:52)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 8 of 15:
+==588== Invalid read of size 1
+==588==    at 0x108F00: hash (hashmap.h:22)
+==588==    by 0x10946F: generate_tag (creature.c:54)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a448f1 is 0 bytes after a block of size 17 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 1 errors in context 9 of 15:
+==588== Invalid write of size 1
+==588==    at 0x486B748: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x1092EB: generate_tag (creature.c:43)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a43805 is 0 bytes after a block of size 5 alloc'd
+==588==    at 0x4865408: malloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x10922B: generate_tag (creature.c:41)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 2 errors in context 10 of 15:
+==588== Invalid write of size 1
+==588==    at 0x486B2B0: strcat (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109443: generate_tag (creature.c:51)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Address 0x4a4489b is 0 bytes after a block of size 11 alloc'd
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== 
+==588== 2 errors in context 11 of 15:
+==588== Conditional jump or move depends on uninitialised value(s)
+==588==    at 0x486B284: strcat (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109443: generate_tag (creature.c:51)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588==  Uninitialised value was created by a heap allocation
+==588==    at 0x486A504: realloc (in /usr/lib/valgrind/vgpreload_memcheck-arm64-linux.so)
+==588==    by 0x109387: generate_tag (creature.c:50)
+==588==    by 0x10A413: read_cfg (file.c:51)
+==588==    by 0x108D87: main (main.c:9)
+==588== 
+==588== ERROR SUMMARY: 17 errors from 15 contexts (suppressed: 0 from 0)
