@@ -13,7 +13,7 @@ int new_creature(Creature *creature, int max_energy, char *name, int evolve)
 
     creature->max_energy = max_energy;
     creature->energy = max_energy;
-    MEM(creature->name, strlen(name), char);
+    MEM(creature->name, strlen(name)+1, char);
     strcpy(creature->name, name);
     creature->evolve = evolve;
     creature->n_traits = 0;
@@ -32,6 +32,7 @@ void destroy_creature(Creature *creature)
     SFREE(creature->traits);
     SFREE(creature->name);
     SFREE(creature->tag_str);
+    SFREE(creature);
 }
 
 unsigned int generate_tag(Creature *creature)

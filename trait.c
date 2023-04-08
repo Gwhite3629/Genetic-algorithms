@@ -13,7 +13,7 @@ int new_trait(Trait *trait, char *name)
     if (strlen(name) == 0) {
         return ret;
     }
-    MEM(trait->name, strlen(name), char);
+    MEM(trait->name, strlen(name)+1, char);
     strcpy(trait->name, name);
 
 exit:
