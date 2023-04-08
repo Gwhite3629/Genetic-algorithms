@@ -74,7 +74,7 @@ map_insert(hashmap_t **map, int *size, char *string, void *data)
 
     (*size)++;
 	MEM_((*map), (*size), hashmap_t);
-	MEM((*map)[(*size)-1].string, strlen(string), char);
+	MEM((*map)[(*size)-1].string, strlen(string)+1, char);
 	strcpy((*map)[(*size)-1].string, string);
 	(*map)[(*size)-1].data = (void *)data;
 	(*map)[(*size)-1].hash = hash(string);
