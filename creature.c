@@ -27,6 +27,7 @@ void destroy_creature(Creature *creature)
 {
     for (int i = 0; i < creature->n_traits; i++) {
         destroy_trait(creature->traits[i]);
+        SFREE(creature->traits[i]);
     }
     SFREE(creature->traits);
     SFREE(creature->name);
@@ -36,7 +37,7 @@ void destroy_creature(Creature *creature)
 unsigned int generate_tag(Creature *creature)
 {
     int ret = SUCCESS;
-    int len = strlen(creature->name);
+    int len = strlen(creature->name) + 1;
 
     MEM(creature->tag_str, len, char);
     

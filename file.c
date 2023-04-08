@@ -54,7 +54,10 @@ int read_cfg(World *world)
     }
 
 exit:
+    SCLOSE(f);
     SFREE(temp_creature);
+    SFREE(temp_creature_name);
+    SFREE(temp_trait_name);
     return ret;
 }
 

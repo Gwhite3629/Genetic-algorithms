@@ -138,6 +138,11 @@ typedef int err_t;
         free(ptr); \
     ptr = NULL;
 
+#define SCLOSE(fileptr) \
+    if (fileptr != NULL) \
+        fclose(fileptr); \
+    fileptr = NULL;
+
 //  Return condition check
 #define CHECK(F) \
     ret = F; \
