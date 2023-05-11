@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define WINDOWS 1
+#define WINDOWS 0
 #define LOGGING 1
 
 #include "utils.h"
