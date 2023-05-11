@@ -12,9 +12,11 @@ int main(void)
 
     for (int i = 0; i < world.n_creatures; i++) {
         printf("Creature: %s\n", ((Creature *)world.creatures[i].data)->name);
-        printf("\tEnergy: %d\n", ((Creature *)world.creatures[i].data)->max_energy);
         for (int j = 0; j < ((Creature *)world.creatures[i].data)->n_traits; j++) {
             printf("\tTrait: %s\n", ((Creature *)world.creatures[i].data)->traits[j]->name);
+            for (int k = 0; k < ((Creature *)world.creatures[i].data)->traits[j]->n_params; k++) {
+                printf("\t\tParam: %d\n", ((Creature *)world.creatures[i].data)->traits[j]->params[k]);
+            }
         }
     }
 
