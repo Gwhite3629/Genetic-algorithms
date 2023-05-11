@@ -24,10 +24,10 @@ int read_cfg(World *world)
 
     Creature **temp_creature = NULL;
 
-    MEM_(temp_creature, 1, Creature *);
+    temp_creature = new(temp_creature, 1, Creature *);
 
-    MEM(temp_creature_name, 50, char);
-    MEM(temp_trait_name, 50, char);
+    temp_creature_name = new(temp_creature_name, 50, char);
+    temp_trait_name = new(temp_trait_name, 50, char);
 
     VALID(f = fopen("config.cfg","r"), FILE_CODE, FILE_OPEN);
 
@@ -39,25 +39,25 @@ int read_cfg(World *world)
     HANDLE(fscanf(f, "%d\n", &temp_ncreatures) < 0, FILE_READ);
 
 
-    while (fscanf(f, "%s\n", temp_creature_name) == 1) {
+    while (fscanf(f, "Creature : %s\n", temp_creature_name) == 1) {
         HANDLE(fscanf(f, "%d\n", &temp_energy) < 0, FILE_READ);
         HANDLE(fscanf(f, "%d\n", &temp_evolve) < 0, FILE_READ);
         HANDLE(fscanf(f, "%d\n", &temp_ntraits) < 0, FILE_READ);
-        MEM(temp_creature[world->n_creatures], 1, Creature);
+        temp_creature[world->n_creatures] = new(temp_creature[world->n_creatures], 1, Creature);
         new_creature(temp_creature[world->n_creatures], temp_energy, temp_creature_name, temp_evolve);
-        while(fscanf(f, "%s\n", temp_trait_name) == 1) {
+        while(fscanf(f, "Trait : %s\n", temp_trait_name) == 1) {
             add_trait(temp_creature[world->n_creatures], temp_trait_name);
         }
         generate_tag(temp_creature[world->n_creatures]);
         map_insert(&(world->creatures), &(world->n_creatures), temp_creature[world->n_creatures]->tag_str, temp_creature[world->n_creatures]);
-        MEM_(temp_creature, world->n_creatures, Creature *);
+        temp_creature = widen(temp_creature, world->n_creatures, Creature *);
     }
 
 exit:
     SCLOSE(f);
-    SFREE(temp_creature);
-    SFREE(temp_creature_name);
-    SFREE(temp_trait_name);
+    del(temp_creature);
+    del(temp_creature_name);
+    del(temp_trait_name);
     return ret;
 }
 
@@ -68,7 +68,7 @@ int find_event(FILE *fd, fpos_t *prof_start, char *locator)
   int found = 0;
   char *buffer = NULL;
 
-  MEM(buffer, strlen(locator), char);
+  buffer = new(buffer, strlen(locator), char);
 
 // Prepares check based on user input profile selection
 // Iterates through file and exits when it has found the start of the profile
@@ -90,6 +90,6 @@ int find_event(FILE *fd, fpos_t *prof_start, char *locator)
       // printf("buffer[flag]: %c, locator[flag]: %c, strlen(locator): %I64d, flag: %d, found: %d\n", buffer[flag], locator[flag], strlen(locator), flag, found);
   } while (found < 1);
 exit:
-  SFREE(buffer);
+  del(buffer);
   return ret;
 }

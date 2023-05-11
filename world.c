@@ -11,8 +11,8 @@ int new_world(World *world, unsigned int xsize, unsigned int ysize)
 
     world->x_size = xsize;
     world->y_size = ysize;
-    MEM(world->world, xsize*ysize, unsigned int);
-    MEM(world->creatures, 1, hashmap_t);
+    world->world = new(world->world, xsize*ysize, unsigned int);
+    world->creatures = new(world->creatures, 1, hashmap_t);
     world->n_creatures = 0;
 
 exit:
@@ -21,12 +21,15 @@ exit:
 
 void destroy_world(World *world)
 {
+    int ret = SUCCESS;
     for (int i = 0; i < world->n_creatures; i++) {
         destroy_creature((Creature *)world->creatures[i].data);
-        SFREE(world->creatures[i].string);
+        del(world->creatures[i].string);
     }
-    SFREE(world->world);
-    SFREE(world->creatures);
+    del(world->world);
+    del(world->creatures);
+exit:
+    return;
 }
 
 int run()

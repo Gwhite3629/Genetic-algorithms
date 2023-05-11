@@ -1,7 +1,7 @@
 CC=gcc
 LINK=gcc
-TARGET=gen
-OBJS=main.o creature.o file.o trait.o world.o
+TARGET=gen.exe
+OBJS=main.o creature.o file.o trait.o world.o memory.o
 CFLAGS= -g -Wall -Wextra
 LFLAGS= -g
 
@@ -15,9 +15,10 @@ creature.o: creature.c
 file.o: file.c
 trait.o: trait.c
 world.o: world.c
+memory.o: memory.c
 
 .PHONY : clean
 
 clean:
-	rm -f ${TARGET} core*
-	rm -f *.o core*
+	del -f ${TARGET} core*
+	del -f *.o core*

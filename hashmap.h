@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "utils.h"
+#include "memory.h"
 
 typedef struct hashmap_t {
     char *string;
@@ -73,8 +74,8 @@ map_insert(hashmap_t **map, int *size, char *string, void *data)
     }
 
     (*size)++;
-	MEM_((*map), (*size), hashmap_t);
-	MEM((*map)[(*size)-1].string, strlen(string)+1, char);
+	(*map) = widen((*map), (*size), hashmap_t);
+	(*map)[(*size)-1].string = new((*map)[(*size)-1].string, strlen(string)+1, char);
 	strcpy((*map)[(*size)-1].string, string);
 	(*map)[(*size)-1].data = (void *)data;
 	(*map)[(*size)-1].hash = hash(string);
@@ -96,7 +97,7 @@ map_remove(hashmap_t **map, int *size, char *string)
 		(*map)[(*size)-1] = (*scan);
 		(*scan) = temp;
 		(*size)--;
-		MEM_((*map), (*size), hashmap_t);
+		(*map) = shorten((*map), (*size), hashmap_t);
 	} else {
 		printf("String not in map\n");
 	}
@@ -117,7 +118,7 @@ direct_map_remove(hashmap_t **map, int *size, unsigned int key)
 		(*map)[(*size)-1] = (*scan);
 		(*scan) = temp;
 		(*size)--;
-		MEM_((*map), (*size), hashmap_t);
+		shorten((*map), (*size), hashmap_t);
 	} else {
 		printf("Key not in map\n");
 	}

@@ -3,6 +3,8 @@
 
 int main(void)
 {
+    int ret = SUCCESS;
+    init;
     World world;
     new_world(&world, 0, 0);
 
@@ -10,8 +12,9 @@ int main(void)
 
     for (int i = 0; i < world.n_creatures; i++) {
         printf("Creature: %s\n", ((Creature *)world.creatures[i].data)->name);
+        printf("\tEnergy: %d\n", ((Creature *)world.creatures[i].data)->max_energy);
         for (int j = 0; j < ((Creature *)world.creatures[i].data)->n_traits; j++) {
-            printf("Trait: %s\n", ((Creature *)world.creatures[i].data)->traits[j]->name);
+            printf("\tTrait: %s\n", ((Creature *)world.creatures[i].data)->traits[j]->name);
         }
     }
 
@@ -20,6 +23,10 @@ int main(void)
     destroy_world(&world);
 
     printf("World destroyed\n");
-    
-    return 0;
+
+    cleanup();
+
+    end;
+exit:
+    return ret;
 }

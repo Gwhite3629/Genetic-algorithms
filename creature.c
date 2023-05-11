@@ -13,11 +13,12 @@ int new_creature(Creature *creature, int max_energy, char *name, int evolve)
 
     creature->max_energy = max_energy;
     creature->energy = max_energy;
-    MEM(creature->name, strlen(name)+1, char);
+    creature->name = new(creature->name, strlen(name)+1, char);
     strcpy(creature->name, name);
+    creature->name[strlen(name)] = '\0';
     creature->evolve = evolve;
     creature->n_traits = 0;
-    MEM(creature->traits, creature->n_traits+1, Trait *);
+    creature->traits = new(creature->traits, creature->n_traits+1, Trait *);
 
 exit:
     return ret;
@@ -25,31 +26,32 @@ exit:
 
 void destroy_creature(Creature *creature)
 {
+    int ret = SUCCESS;
     for (int i = 0; i < creature->n_traits; i++) {
         destroy_trait(creature->traits[i]);
-        SFREE(creature->traits[i]);
+        del(creature->traits[i]);
     }
-    SFREE(creature->traits);
-    SFREE(creature->name);
-    SFREE(creature->tag_str);
-    SFREE(creature);
+    del(creature->traits);
+    del(creature->name);
+    del(creature->tag_str);
+    del(creature);
+exit:
+    return;
 }
 
 unsigned int generate_tag(Creature *creature)
 {
     int ret = SUCCESS;
-    int len = strlen(creature->name) + 1;
+    int len = strlen(creature->name)+1;
 
-    MEM(creature->tag_str, len, char);
+    creature->tag_str = new(creature->tag_str, len, char);
     
     strcpy(creature->tag_str, creature->name);
-
-    printf("Ntraits: %d\n", creature->n_traits);
+    creature->tag_str[len] = '\0';
 
     for (int i = 0; i < creature->n_traits; i++) {
-        printf("%d, %s\n", i, creature->traits[i]->name);
-        len += strlen(creature->traits[i]->name);
-        MEM_(creature->tag_str, len, char);
+        len += strlen(creature->traits[i]->name)+1;
+        creature->tag_str = widen(creature->tag_str, len, char);
         strcat(creature->tag_str, creature->traits[i]->name);
     }
 
@@ -64,8 +66,8 @@ int add_trait(Creature *creature, char *name)
 {
     int ret = SUCCESS;
 
-    MEM_(creature->traits, creature->n_traits+1, Trait *);
-    MEM(creature->traits[creature->n_traits], 1, Trait);
+    creature->traits = widen(creature->traits, creature->n_traits+1, Trait *);
+    creature->traits[creature->n_traits] = new(creature->traits[creature->n_traits], 1, Trait);
     new_trait(creature->traits[creature->n_traits], name);
     creature->n_traits++;
 

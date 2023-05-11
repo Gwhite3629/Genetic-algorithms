@@ -1,5 +1,6 @@
 #include "trait.h"
 #include "utils.h"
+#include "memory.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -13,8 +14,9 @@ int new_trait(Trait *trait, char *name)
     if (strlen(name) == 0) {
         return ret;
     }
-    MEM(trait->name, strlen(name)+1, char);
+    trait->name = new(trait->name, strlen(name)+1, char);
     strcpy(trait->name, name);
+    trait->name[strlen(name)] = '\0';
 
 exit:
     return ret;
@@ -22,5 +24,8 @@ exit:
 
 void destroy_trait(Trait *trait)
 {
-    SFREE(trait->name);
+    int ret = SUCCESS;
+    del(trait->name);
+exit:
+    return;
 }
